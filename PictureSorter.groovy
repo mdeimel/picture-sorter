@@ -1,3 +1,5 @@
+@Grab("commons-io:commons-io:2.4")
+
 import org.apache.commons.io.FileUtils
 
 import java.text.SimpleDateFormat

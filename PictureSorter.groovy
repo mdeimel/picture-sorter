@@ -45,7 +45,8 @@ private boolean fileToMove(String fileName) {
     if (fileName.endsWith(".jpeg") ||
             fileName.endsWith(".jpg") ||
             fileName.endsWith(".png") ||
-            fileName.endsWith(".mov")) {
+            fileName.endsWith(".mov") ||
+            fileName.endsWith(".avi")) {
         return true
     }
     return false
@@ -53,7 +54,9 @@ private boolean fileToMove(String fileName) {
 
 // Based on the file name, determine if the file can be deleted
 private boolean isFileOkayToDelete(String fileName) {
-    if (fileName == ".DS_Store") {
+    if (fileName == ".DS_Store" ||
+            fileName.toLowerCase().endsWith(".thm") ||
+            fileName.toLowerCase().endsWith(".ctg")) {
         return true
     }
     return false
@@ -116,29 +119,6 @@ private void moveFile(File file) {
     // Move file to new location
     file.renameTo("${yearMonthFolder}/${fileName}")
     log("moving file to: ${yearMonthFolder.getAbsolutePath()}/${fileName}")
-//    log("name: ${file.getName()}"
-//    log("original file location: ${file.getAbsolutePath()}"
-//    log("duplicateFile location: ${duplicateFile.getAbsolutePath()}"
-//    boolean fileContentsEqual = FileUtils.contentEquals(file, duplicateFile)
-//    log("fileContentsEqual: ${fileContentsEqual}"
-//    // If the name has a conflict, iterate through the options of new filenames
-//    int counter = 0
-//    String fileName = file.getName()
-//    while (duplicateFile.exists() && !fileContentsEqual) {
-//        int index = fileName.lastIndexOf(".")
-//        String newFileName = "${fileName.substring(0, index)}_${counter++}${fileName.substring(index)}"
-//        File fileWithCounter = new File(yearMonthFolder, newFileName)
-//        if (!fileWithCounter.exists()) {
-//            fileName = newFileName
-//            fileContentsEqual = true
-//        }
-//    }
-//    log("fileName: ${fileName}"
-//
-////    google humingbird.jpg not getting a new name
-//
-//    // Actually move the file to the new location, by renaming it
-//    file.renameTo("${yearMonthFolder}/${fileName}")
 }
 
 private void log(String message) {

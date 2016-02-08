@@ -132,6 +132,6 @@ if (!logs.exists() || !logs.isDirectory()) {
 }
 String dateTime = new SimpleDateFormat("yyyy-MM-dd-HH:mm:ss").format(new Date())
 logFile = new File(logs, "PictureSorter-${dateTime}.log")
-File rootFolder = new File("Pictures to go through")
+File rootFolder = new File("Pictures to sort")
 sortPicturesInFolder(rootFolder)
 log("DONE")

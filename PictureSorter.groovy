@@ -46,7 +46,9 @@ private boolean fileToMove(String fileName) {
             fileName.endsWith(".jpg") ||
             fileName.endsWith(".png") ||
             fileName.endsWith(".mov") ||
-            fileName.endsWith(".avi")) {
+            fileName.endsWith(".avi") ||
+            fileName.endsWith(".mp4") ||
+            fileName.endsWith(".3gp")) {
         return true
     }
     return false
@@ -55,6 +57,8 @@ private boolean fileToMove(String fileName) {
 // Based on the file name, determine if the file can be deleted
 private boolean isFileOkayToDelete(String fileName) {
     if (fileName == ".DS_Store" ||
+            fileName == ".picasa.ini" ||
+            fileName == "Thumbs.db" ||
             fileName.toLowerCase().endsWith(".thm") ||
             fileName.toLowerCase().endsWith(".ctg")) {
         return true
